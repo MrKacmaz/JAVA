@@ -1,6 +1,6 @@
 package Game;
 
-/***
+/**
  * @author ALPEREN KACMAZ
  *
  * @version 1.5
@@ -25,9 +25,9 @@ public class GuessIt_v_1_5 {
     public static void chooseDiff() {
         Scanner input = new Scanner(System.in);
         System.out.print("\n\n\tGame Difficulty is ...\n" +
-                "\n1-Easy\n2-Normal\n3-Hard\n4-Veteran\n\n5-Quit \n... ");
+                "\n1-Easy\n2-Normal\n3-Hard\n4-Veteran\n5-Choose yourself\n\n6-Quit \n ==> ");
         choose = input.nextInt();
-        if (choose > 0 && choose < 6) {
+        if (choose > 0 && choose < 7) {
             difficultyLevel(choose);
 
         } else {
@@ -39,6 +39,7 @@ public class GuessIt_v_1_5 {
 
     public static void difficultyLevel(int diffLvl) {
         //zorluk seçimi alanı
+        Scanner in = new Scanner(System.in);
         int interval;
         switch (diffLvl) {
             case 1:
@@ -70,6 +71,11 @@ public class GuessIt_v_1_5 {
                 gameBrain(interval);
                 break;
             case 5:
+                System.out.println("Interval ends from: ");
+                interval = in.nextInt();
+                gameBrain(interval);
+                break;
+            case 6:
                 System.out.println("\n\nGoodbye ;=D");
                 break;
         }
@@ -143,10 +149,9 @@ public class GuessIt_v_1_5 {
         }
     }
 
-    public static int numberOfRepeat(int rep) {
+    public static void numberOfRepeat(int rep) {
 
         repeat = rep + repeat;
-        return repeat;
     }
 
     public static double score() {
@@ -174,6 +179,10 @@ public class GuessIt_v_1_5 {
             //choose veteran
             case 4: {
                 score = score - (1.75 * repeat);
+            }
+            break;
+            case  5: {
+                score = score - repeat;
             }
         }
 
