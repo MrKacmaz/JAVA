@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static cepTelefonu cepTelefonu = new cepTelefonu();
     public static Scanner input = new Scanner(System.in);
 
